@@ -1,0 +1,137 @@
+.menu {
+    position: relative;
+    margin: 0 auto;
+    text-align: left;
+    width: 100%;
+    max-width: 700px;
+    height: 750px;
+    align-items: center;
+  
+    .titleQuestion{
+      position: relative;
+      font-size: 50px;
+      color: #002f9c;
+      text-align: center;
+      margin: 0;
+  }
+  .StepQuestion{
+    font-size: 20px;
+    color: rgb(74, 109, 191);
+    text-align: center;
+}   
+  .selectQuestion {
+    display: flex;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    height: 50px;
+    left: 5%;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 1px 3px -2px #9098A9;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 16px;
+    transition: all 150ms ease;
+    option{
+      font-size: 17px;
+    }
+    &:focus {
+      border-color: #007bff;
+  
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+  .fieldQuestion{
+    position: relative;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    outline: none;
+    resize: none;
+    width: 90%;
+    height: 80px;
+    left: 4.5%;
+    caret-color: auto;
+    &:focus {
+      border-color: #007bff;
+  
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+  }
+
+.tableQuestion{
+  position: relative;
+  overflow:auto;
+  border-radius: 5px;
+  border: none;
+  border-collapse: collapse;
+  word-wrap: break-word;
+  display: block;
+  transition: 0.15s;
+  left: 2%;
+  width: 680px;
+  height: 220px;
+  background-color: #F8F8F8;
+  top: 15px;
+
+  td{
+    text-align: center;
+    overflow:auto;
+    width: 100%;
+  }
+  .tdQuestion{
+    position: relative;
+    text-align: left;
+    padding-left: 20px;
+    width: 100%;
+  }
+  th{
+    color: rgb(74, 109, 191);
+    background: #9996963b;
+    font-size: 25px;
+    text-align: center;
+  }
+  tr:hover { 
+    background-color: #cccccc 
+  }
+
+  tr:nth-child(even){
+    background: #F8F8F8;
+    &:hover { 
+      background-color: #cccccc 
+    }
+
+}
+}
+
+.updateButton{
+  border: solid #f2f1f2;
+  border-radius: 7px;
+  color: #07b874;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  width: 97px;
+
+   &:hover {
+  background-color: #ffffff;
+  color: #07b874;
+  border: solid;
+  border-radius: 5px;
+  }
+
+}
+}
