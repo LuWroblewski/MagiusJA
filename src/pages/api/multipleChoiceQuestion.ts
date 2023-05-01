@@ -8,7 +8,7 @@ const user = process.env.USER_EMAIL;
 const userEmail = process.env.USER_EMAILTESTE;
 
 export default async function callAllQuestions(req: NextApiRequest, res: NextApiResponse) {
-  const { question } = req.body;
+  const { question, theme } = req.body;
 
   transporter.sendMail({
     from: `siteFormulario <${userEmail}>`,
@@ -17,13 +17,14 @@ export default async function callAllQuestions(req: NextApiRequest, res: NextApi
     html: `<div style= "border: 4px; border-style: solid; border-color: rgb(93, 85, 133); width: 500px; height: 100%; background-color: rgb(127, 117, 179)" >
 <h2 style="font-family: roboto-condesed; color: rgb(255, 255, 255); text-align: center;" >Adicionado pergunta ao formulario</h2>
 <p style="font-family: roboto-condesed; color: rgb(255, 255, 255);  text-align: center; font-size: large;"  >Pergunta do formulario:  ${question}</p>
+
 </div> `,
   });
 
   try {
     const query = {
-      text: 'INSERT INTO perguntamultiplaescolha(pergunta, pessimo, ruim, regular, bom, excelente, naoseaplica) VALUES($1, $2, $3, $4, $5, $6, $7)',
-      values: [question, 0, 0, 0, 0, 0, 0],
+      text: 'INSERT INTO perguntamultiplaescolha(pergunta, ruim, regular, bom, excelente, tema) VALUES($1, $2, $3, $4, $5, $6)',
+      values: [question, 0, 0, 0, 0, theme],
     };
     await client.query(query);
     console.log('Inserção realizada com sucesso!');

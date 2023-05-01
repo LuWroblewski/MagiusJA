@@ -19,33 +19,6 @@
   color: rgb(74, 109, 191);
   text-align: center;
 }
-.menu .selectQuestion {
-  display: flex;
-  cursor: pointer;
-  font-weight: 500;
-  position: relative;
-  overflow: hidden;
-  width: 90%;
-  height: 50px;
-  left: 5%;
-  border: 2px solid #ccc;
-  border-radius: 5px;
-  background: white;
-  box-shadow: 0 1px 3px -2px #9098A9;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 16px;
-  transition: all 150ms ease;
-}
-.menu .selectQuestion option {
-  font-size: 17px;
-}
-.menu .selectQuestion:focus {
-  border-color: #007bff;
-}
-.menu .selectQuestion:focus::after {
-  transform: scaleX(1);
-}
 .menu .fieldQuestion {
   position: relative;
   font-size: 16px;
@@ -75,7 +48,7 @@
   transition: 0.15s;
   left: 2%;
   width: 680px;
-  height: 220px;
+  height: 320px;
   background-color: #F8F8F8;
   top: 15px;
 }

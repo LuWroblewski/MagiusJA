@@ -16,47 +16,39 @@ export const DeleteQuestion = () => {
   const [dataMultipleChoice, setDataMultipleChoice] = useState([]);
   const [dataSubjective, setDataSubjective] = useState([]);
   const [shouldFetchData, setShouldFetchData] = useState(true);
-  const [selectedOption, setSelectedOption] = useState('');
 
-  const handleclick = (pergunta: string) => {
-    if (selectedOption == '') {
-      alert('Retorne a etapa 1 e selecione uma das opções');
-      return;
-    }
+  const handleMultipleButton = (pergunta: string) => {
+    console.log(pergunta);
+    fetch('./api/deleteQuestion', {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: 'Bearer ' + vercelToken,
+      },
+      body: JSON.stringify({
+        table: 'perguntamultiplaescolha',
+        question: pergunta,
+      }),
+    }).then(() => {
+      setShouldFetchData(true);
+    });
+  };
 
-    if (selectedOption == 'multipleChoice') {
-      console.log(pergunta);
-      fetch('./api/deleteQuestion', {
-        method: 'DELETE',
-        headers: {
-          'content-type': 'application/json',
-          Authorization: 'Bearer ' + vercelToken,
-        },
-        body: JSON.stringify({
-          table: 'perguntamultiplaescolha',
-          question: pergunta,
-        }),
-      }).then(() => {
-        setSelectedOption('');
-        setShouldFetchData(true);
-      });
-    } else if (selectedOption == 'subjective') {
-      console.log(pergunta);
-      fetch('./api/deleteQuestion', {
-        method: 'DELETE',
-        headers: {
-          'content-type': 'application/json',
-          Authorization: 'Bearer ' + vercelToken,
-        },
-        body: JSON.stringify({
-          table: 'respostasubjetiva',
-          question: pergunta,
-        }),
-      }).then(() => {
-        setSelectedOption('');
-        setShouldFetchData(true);
-      });
-    }
+  const handleSubjectiveButton = (pergunta: string) => {
+    console.log(pergunta);
+    fetch('./api/deleteQuestion', {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json',
+        Authorization: 'Bearer ' + vercelToken,
+      },
+      body: JSON.stringify({
+        table: 'respostasubjetiva',
+        question: pergunta,
+      }),
+    }).then(() => {
+      setShouldFetchData(true);
+    });
   };
 
   useEffect(() => {
@@ -85,21 +77,11 @@ export const DeleteQuestion = () => {
     }
   }, [shouldFetchData]);
 
-  const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedOption(event.target.value);
-  };
-
   return (
     <section className={style.menu}>
       <h1 className={style.titleQuestion}>
         Remova uma pergunta do questionario <FontAwesomeIcon icon={faXmark} size='2xl' />
       </h1>
-      <h2 className={style.StepQuestion}> 1º Escolha qual pergunta será removida</h2>
-      <select className={style.selectQuestion} value={selectedOption} onChange={handleOptionChange}>
-        <option value=''> Selecione uma opção</option>
-        <option value='multipleChoice'>Questão multipla escolha</option>
-        <option value='subjective'>Questão subjetiva</option>
-      </select>
       <table className={style.tableQuestion}>
         <thead>
           <tr>
@@ -111,7 +93,7 @@ export const DeleteQuestion = () => {
           {dataMultipleChoice.map((item: Question) => (
             <tr key={item.id}>
               <td className={style.tdQuestion}>{item.pergunta}</td>
-              <button className={style.removeButton} onClick={() => handleclick(item.pergunta)}>
+              <button className={style.removeButton} onClick={() => handleMultipleButton(item.pergunta)}>
                 <FontAwesomeIcon icon={faDeleteLeft} size='2xl' />
               </button>
             </tr>
@@ -122,7 +104,7 @@ export const DeleteQuestion = () => {
               <button
                 style={{ color: '#007bff' }}
                 className={style.removeButton}
-                onClick={() => handleclick(item.pergunta)}
+                onClick={() => handleSubjectiveButton(item.pergunta)}
               >
                 <FontAwesomeIcon icon={faDeleteLeft} size='2xl' />
               </button>

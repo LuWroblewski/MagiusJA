@@ -6,7 +6,7 @@
     border-collapse: collapse;
     width: 100%;
     max-width: 700px;
-    height: 620px;
+    height: 710px;
     box-shadow: 0px 2px 5px rgb(133, 132, 132, 0.7);
     align-items: center;
     border-radius: 9px;
@@ -22,7 +22,7 @@
         font-size: 20px;
         color: rgb(74, 109, 191);
     }    
-              .selectQuestion {
+              .selectQuestion, .selectTheme {
                 display: flex;
                 cursor: pointer;
                 font-weight: 500;
@@ -50,7 +50,6 @@
                   }
                 }
               }
-
               .fieldQuestion{
                 font-size: 16px;
                 border-radius: 10px;

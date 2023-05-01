@@ -10,6 +10,7 @@ const vercelToken = process.env.VERCEL_TOKEN;
 export const MenuQuestion = () => {
   const [question, setQuestion] = useState('');
   const [selectedOption, setSelectedOption] = useState('');
+  const [selectedTheme, setSelectedTheme] = useState('');
 
   const handleclick = () => {
     if (selectedOption == '') {
@@ -17,6 +18,9 @@ export const MenuQuestion = () => {
       return;
     } else if (question == '') {
       alert('Retorne a etapa 2 e selecione uma das opções');
+      return;
+    } else if (selectedTheme == '') {
+      alert('Retorne a etapa 3 e selecione uma das opções');
       return;
     }
 
@@ -29,10 +33,12 @@ export const MenuQuestion = () => {
         },
         body: JSON.stringify({
           question: question,
+          theme: selectedTheme,
         }),
       });
       setQuestion('');
       setSelectedOption('');
+      setSelectedTheme('');
     } else if (selectedOption == 'subjective') {
       fetch('./api/subjectiveQuestion', {
         method: 'POST',
@@ -42,10 +48,12 @@ export const MenuQuestion = () => {
         },
         body: JSON.stringify({
           question: question,
+          theme: selectedTheme,
         }),
       });
       setQuestion('');
       setSelectedOption('');
+      setSelectedTheme('');
     }
   };
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -55,6 +63,9 @@ export const MenuQuestion = () => {
 
   const handleOptionChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedOption(event.target.value);
+  };
+  const handleThemeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedTheme(event.target.value);
   };
 
   return (
@@ -68,6 +79,20 @@ export const MenuQuestion = () => {
           <option value=''> Selecione uma opção</option>
           <option value='multipleChoice'>Questão multipla escolha</option>
           <option value='subjective'>Questão subjetiva</option>
+        </select>
+        <h2 className={style.StepQuestion}> 2º Agora escolha o tema da sua pergunta</h2>
+        <select className={style.selectTheme} value={selectedTheme} onChange={handleThemeChange}>
+          <option value=''> Selecione uma opção</option>
+          <option value='profissional'>profissional</option>
+          <option value='gestao/lideranca'>gestão/liderança</option>
+          <option value='climaOrganizacional'>clima organizacional</option>
+          <option value='beneficios'>beneficios</option>
+          <option value='oportunidade/desenvolvimento'>oportunidade/desenvolvimento</option>
+          <option value='motivacao'>motivação</option>
+          <option value='ambiente/condicoesDeTrabalho'>ambiente/condicoes de trabalho</option>
+          <option value='identidade/confianca'>identidade/confianca</option>
+          <option value='comunicacao'>comunicação</option>
+          <option value='cooperacao'>cooperacao</option>
         </select>
         <h2 className={style.StepQuestion}> Agora, escreva a pergunta</h2>
         <textarea

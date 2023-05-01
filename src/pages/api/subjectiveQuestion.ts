@@ -3,7 +3,7 @@ import { transporter } from './connection';
 import { client } from './connection';
 
 export default async function callAllQuestions(req: NextApiRequest, res: NextApiResponse) {
-  const { question } = req.body;
+  const { question, theme } = req.body;
 
   const user = process.env.USER_EMAIL;
   const userEmail = process.env.USER_EMAILTESTE;
@@ -20,8 +20,8 @@ export default async function callAllQuestions(req: NextApiRequest, res: NextApi
 
   try {
     const query = {
-      text: 'INSERT INTO respostasubjetiva(pergunta) VALUES($1)',
-      values: [question],
+      text: 'INSERT INTO respostasubjetiva (pergunta, tema) VALUES($1, $2)',
+      values: [question, theme],
     };
     await client.query(query);
     console.log('Inserção realizada com sucesso!');
