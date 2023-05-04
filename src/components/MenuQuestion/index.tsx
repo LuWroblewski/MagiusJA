@@ -76,23 +76,27 @@ export const MenuQuestion = () => {
         </h1>
         <h2 className={style.StepQuestion}> 1º Escolha como será a pergunta</h2>
         <select className={style.selectQuestion} value={selectedOption} onChange={handleOptionChange}>
-          <option value=''> Selecione uma opção</option>
+          <option hidden value=''>
+            Selecione uma opção
+          </option>
           <option value='multipleChoice'>Questão multipla escolha</option>
           <option value='subjective'>Questão subjetiva</option>
         </select>
-        <h2 className={style.StepQuestion}> 2º Agora escolha o tema da sua pergunta</h2>
+        <h2 className={style.StepQuestion}> 2º Agora escolha a categoria da sua pergunta</h2>
         <select className={style.selectTheme} value={selectedTheme} onChange={handleThemeChange}>
-          <option value=''> Selecione uma opção</option>
+          <option hidden value=''>
+            Selecione uma opção
+          </option>
           <option value='profissional'>profissional</option>
           <option value='gestao/lideranca'>gestão/liderança</option>
           <option value='climaOrganizacional'>clima organizacional</option>
           <option value='beneficios'>beneficios</option>
           <option value='oportunidade/desenvolvimento'>oportunidade/desenvolvimento</option>
           <option value='motivacao'>motivação</option>
-          <option value='ambiente/condicoesDeTrabalho'>ambiente/condicoes de trabalho</option>
-          <option value='identidade/confianca'>identidade/confianca</option>
+          <option value='ambiente/condicoesDeTrabalho'>ambiente/condições de trabalho</option>
+          <option value='identidade/confianca'>identidade/confiança</option>
           <option value='comunicacao'>comunicação</option>
-          <option value='cooperacao'>cooperacao</option>
+          <option value='cooperacao'>cooperação</option>
         </select>
         <h2 className={style.StepQuestion}> Agora, escreva a pergunta</h2>
         <textarea

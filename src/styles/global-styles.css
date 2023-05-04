@@ -1,13 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
 body {
   padding: 0;
   margin: 0;
   background-color: #f2f1f2;
-  font-family: "Roboto", sans-serif;
+  font-family: "Titillium Web", sans-serif;
 }
 
 .menu {
   position: relative;
-  top: 60px;
+  top: 20px;
   margin: 0 auto;
   text-align: center;
   border-collapse: collapse;
@@ -18,8 +19,7 @@ body {
   align-items: center;
   border-radius: 9px;
 }
-
-.buttonConfig {
+.menu .buttonConfig {
   position: relative;
   border: 2px solid #ccc;
   border-radius: 7px;
@@ -37,9 +37,9 @@ body {
   padding: 15px;
   top: 10px;
 }
-.buttonConfig:hover {
+.menu .buttonConfig:hover {
+  color: #002f9c;
   background-color: #ffffff;
-  color: #ff0000;
   border-radius: 5px;
   border: 2px solid #002f9c;
 }

@@ -6,20 +6,22 @@
   border-collapse: collapse;
   width: 100%;
   max-width: 700px;
-  height: 710px;
+  height: 730px;
   box-shadow: 0px 2px 5px rgba(133, 132, 132, 0.7);
   align-items: center;
   border-radius: 9px;
 }
 .menu .formQuestion .titleQuestion {
   position: relative;
-  padding-top: 2%;
   font-size: 50px;
   color: #002f9c;
+  font-weight: 900;
+  margin: 0;
 }
 .menu .formQuestion .StepQuestion {
   font-size: 20px;
   color: rgb(74, 109, 191);
+  font-weight: 900;
 }
 .menu .formQuestion .selectQuestion, .menu .formQuestion .selectTheme {
   display: flex;
@@ -74,6 +76,7 @@
   position: relative;
   cursor: pointer;
   font-size: 20px;
+  font-weight: 700;
   text-align: center;
   border-radius: 5px;
   width: 90%;
@@ -89,6 +92,7 @@
   box-shadow: inset 1000px 0 0 0 #002f9c;
   color: white;
   border-color: #001f66;
+  font-weight: 9700;
 }
 
 /*# sourceMappingURL=style.module.css.map */

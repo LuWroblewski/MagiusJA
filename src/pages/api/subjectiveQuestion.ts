@@ -20,7 +20,7 @@ export default async function callAllQuestions(req: NextApiRequest, res: NextApi
 
   try {
     const query = {
-      text: 'INSERT INTO respostasubjetiva (pergunta, tema) VALUES($1, $2)',
+      text: 'INSERT INTO respostasubjetiva (pergunta, categoria) VALUES($1, $2)',
       values: [question, theme],
     };
     await client.query(query);
