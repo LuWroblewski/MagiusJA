@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
-import { faArrowDown, faRetweet } from '@fortawesome/free-solid-svg-icons';
+import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -12,8 +12,8 @@ interface Question {
 
 export const Form = () => {
   const [dataProfissional, setDataProfissional] = useState([]);
-  const [dataSubjective, setDataSubjective] = useState([]);
   const [shouldFetchData, setShouldFetchData] = useState(true);
+  const [selectedAnswer, setSelectedAnswer] = useState('');
 
   useEffect(() => {
     async function fetchProfissional() {
@@ -29,18 +29,13 @@ export const Form = () => {
     }
   }, [shouldFetchData]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('/api/findmSubjectiveQuestion');
-      const dataMultipleChoice = await response.json();
-      setDataSubjective(dataMultipleChoice.map((item: Question) => ({ ...item, id: item.id })));
-    }
+  const answerResponse = (answer: string) => {
+    setSelectedAnswer(answer);
+  };
 
-    if (shouldFetchData) {
-      fetchData();
-      setShouldFetchData(false);
-    }
-  }, [shouldFetchData]);
+  useEffect(() => {
+    console.log(selectedAnswer);
+  }, [selectedAnswer]);
 
   return (
     <section className={style.menu}>
@@ -66,17 +61,23 @@ export const Form = () => {
 
         {dataProfissional.map((item: Question) => (
           <li key={item.id}>
-            <li className={style.tdQuestion}>{item.pergunta}</li>
-            <li>a) ruim </li>
-            <li>b) regular </li>
-            <li>c) bom </li>
-            <li>d) excelente </li>
-          </li>
-        ))}
-        {dataSubjective.map((item: Question) => (
-          <li key={item.id}>
-            <span className={style.tdQuestion}>{item.pergunta}</span>
-            <FontAwesomeIcon icon={faRetweet} size='2xl' />
+            <li className={style.liQuestion}>{item.pergunta}</li>
+            <li onClick={() => answerResponse('a')} className={style.liOption}>
+              <input className={style.radioQuestion} name='item' type='radio' id='radioOptionRuim' />
+              <label htmlFor='radioOptionRuim'>a) ruim</label>
+            </li>
+            <li onClick={() => answerResponse('b')} className={style.liOption}>
+              <input className={style.radioQuestion} name='item' type='radio' id='radioOptionRegular' />
+              <label htmlFor='radioOptionRegular'> b) regular</label>
+            </li>
+            <li onClick={() => answerResponse('c')} className={style.liOption}>
+              <input className={style.radioQuestion} name='item' type='radio' id='radioOptionBom' />
+              <label htmlFor='radioOptionBom'> c) bom</label>
+            </li>
+            <li onClick={() => answerResponse('d')} className={style.liOption}>
+              <input className={style.radioQuestion} name='item' type='radio' id='radioOptionExcelente' />
+              <label htmlFor='radioOptionExcelente'> d) excelente</label>
+            </li>
           </li>
         ))}
       </ul>

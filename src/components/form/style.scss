@@ -55,7 +55,32 @@ li {
     color: rgb(247, 135, 135);
   }
 }
-
 }
+.tableQuestion {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+
+
+.liQuestion {
+  font-weight: 900;
+  font-size: x-large;
+  padding-top: 15px;
+}
+.liOption{
+  font-weight: 400;
+  font-size: 18px;
+  padding-top: 5px;
+  .radioQuestion{
+  appearance:none;
+  margin: 0;
+  &:checked + label {
+    left: calc(50% + 10px);
+    background: linear-gradient(150deg, rgb(77,96,211), rgb(221,49,111), rgb(254,210,114));
+    }
+  }
+}
+}
+
 
 }
