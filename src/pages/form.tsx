@@ -4,7 +4,6 @@ import { Form } from '../components/form';
 const Home = () => {
   return (
     <div className='Home'>
-      <Menu />
       <Form />
     </div>
   );
