@@ -13,11 +13,13 @@ interface Question {
 }
 
 export const Form = () => {
-  const [dataProfissional, setDataProfissional] = useState([]);
+  const [dataAnswer, setdataAnswer] = useState([]);
   const [shouldFetchData] = useState(true);
   const [selectedAnswer, setSelectedAnswer] = useState({});
   const [formQuestion, setFormQuestion] = useState('profissional');
+  const [stepQuestion, setStepQuestion] = useState('profissional');
 
+  const [displayProfissional, setDisplayProfissional] = useState(false);
   const [displayGestaoLideranca, setDisplayGestaoLideranca] = useState(false);
   const [displayClimaOrganizacional, setDisplayClimaOrganizacional] = useState(true);
   const [displayBeneficios, setDisplayBeneficios] = useState(true);
@@ -28,41 +30,81 @@ export const Form = () => {
   const [displayComunicacao, setDisplayComunicacao] = useState(true);
   const [displayCooperacao, setDisplayCooperacao] = useState(true);
 
-  const menuChangeQuestion = (formQuestion: string) => {
+  const fetchAnswer = async () => {
+    await fetch('./api/answerForm/answerQuestion', {
+      method: 'PATCH',
+      headers: {
+        'content-type': 'application/json',
+      },
+      body: JSON.stringify({
+        selectedAnswer: selectedAnswer,
+      }),
+    });
+  };
+
+  const menuChangeQuestion = async (formQuestion: string) => {
     if (formQuestion == 'gestaoLideranca') {
+      await fetchAnswer();
+      setDisplayProfissional(true);
+      setStepQuestion('Gestão / liderança');
       setDisplayClimaOrganizacional(false);
       setDisplayGestaoLideranca(true);
+      setSelectedAnswer({});
     }
     if (formQuestion == 'climaOrganizacional') {
+      await fetchAnswer();
       setDisplayClimaOrganizacional(true);
+      setStepQuestion('Clima organizacional');
       setDisplayBeneficios(false);
+      setSelectedAnswer({});
     }
     if (formQuestion == 'beneficios') {
+      await fetchAnswer();
       setDisplayBeneficios(true);
+      setStepQuestion('Beneficios');
       setDisplayOportunidadeDesenvolvimento(false);
+      setSelectedAnswer({});
     }
     if (formQuestion == 'oportunidadeDesenvolvimento') {
+      await fetchAnswer();
       setDisplayOportunidadeDesenvolvimento(true);
+      setStepQuestion('Opotunidade / desenvolvimento');
       setDisplayMotivacao(false);
+      setSelectedAnswer({});
     }
     if (formQuestion == 'motivacao') {
+      await fetchAnswer();
       setDisplayMotivacao(true);
+      setStepQuestion('Motivação');
       setDisplayAmbienteCondicoes(false);
+      setSelectedAnswer({});
     }
     if (formQuestion == 'ambienteCondicoes') {
+      await fetchAnswer();
       setDisplayAmbienteCondicoes(true);
+      setStepQuestion('Ambiente / Condições');
       setDisplayIdentidadeConfianca(false);
+      setSelectedAnswer({});
     }
     if (formQuestion == 'identidadeConfianca') {
+      await fetchAnswer();
       setDisplayIdentidadeConfianca(true);
+      setStepQuestion('Identidade e confiança');
       setDisplayComunicacao(false);
+      setSelectedAnswer({});
     }
     if (formQuestion == 'comunicacao') {
+      await fetchAnswer();
       setDisplayComunicacao(true);
+      setStepQuestion('Comunicação');
       setDisplayCooperacao(false);
+      setSelectedAnswer({});
     }
     if (formQuestion == 'cooperacao') {
+      await fetchAnswer();
       setDisplayCooperacao(true);
+      setStepQuestion('Cooperação');
+      setSelectedAnswer({});
     }
     setFormQuestion(formQuestion);
   };
@@ -70,9 +112,9 @@ export const Form = () => {
   useEffect(() => {
     async function fetchQuestion() {
       const response = await fetch(`/api/forms/${formQuestion}`);
-      const dataProfissional = await response.json();
-      setDataProfissional(dataProfissional.map((item: Question) => ({ ...item, id: item.id })));
-      console.log(dataProfissional);
+      const dataAnswer = await response.json();
+      setdataAnswer(dataAnswer.map((item: Question) => ({ ...item, id: item.id })));
+      console.log(dataAnswer);
     }
 
     if (shouldFetchData) {
@@ -105,7 +147,9 @@ export const Form = () => {
       </p>
       <ul className={style.ulMenu}>
         <li className={style.menuTheme}>
-          <button disabled={true}>Profissional</button>
+          <button disabled={displayProfissional} style={{ borderRadius: '8px 0 0 0' }}>
+            Profissional
+          </button>
         </li>
         <li className={style.menuTheme}>
           <button disabled={displayGestaoLideranca} onClick={() => menuChangeQuestion('gestaoLideranca')}>
@@ -126,12 +170,17 @@ export const Form = () => {
           <button
             disabled={displayOportunidadeDesenvolvimento}
             onClick={() => menuChangeQuestion('oportunidadeDesenvolvimento')}
+            style={{ borderRadius: '0 8px 0 0' }}
           >
             Oportunidades e Desenvolvimento
           </button>
         </li>
         <li className={style.menuTheme}>
-          <button disabled={displayMotivacao} onClick={() => menuChangeQuestion('motivacao')}>
+          <button
+            disabled={displayMotivacao}
+            onClick={() => menuChangeQuestion('motivacao')}
+            style={{ borderRadius: '0 0 0 8px' }}
+          >
             Motivação
           </button>
         </li>
@@ -151,18 +200,22 @@ export const Form = () => {
           </button>
         </li>
         <li className={style.menuTheme}>
-          <button disabled={displayCooperacao} onClick={() => menuChangeQuestion('cooperacao')}>
+          <button
+            disabled={displayCooperacao}
+            onClick={() => menuChangeQuestion('cooperacao')}
+            style={{ borderRadius: '0 0 8px 0' }}
+          >
             cooperação
           </button>
         </li>
       </ul>
       <ul className={style.tableQuestion}>
-        <h2 className={style.stepQuestion}>Perguntas sobre a categoria profissional</h2>
+        <h2 className={style.stepQuestion}>Você está na etapa {stepQuestion}</h2>
 
-        {dataProfissional.map((item: Question) => (
+        {dataAnswer.map((item: Question) => (
           <li key={item.id}>
             <li className={style.liQuestion}>{item.pergunta}</li>
-            <li onClick={() => answerResponse(item.uuid, 'a')} className={style.liOption}>
+            <li onClick={() => answerResponse(item.uuid, 'ruim')} className={style.liOption}>
               <input
                 className={style.radioQuestion}
                 name={`${item.uuid} item `}
@@ -173,7 +226,7 @@ export const Form = () => {
                 a) ruim
               </label>
             </li>
-            <li onClick={() => answerResponse(item.uuid, 'b')} className={style.liOption}>
+            <li onClick={() => answerResponse(item.uuid, 'regular')} className={style.liOption}>
               <input
                 className={style.radioQuestion}
                 name={`${item.uuid} item `}
@@ -184,7 +237,7 @@ export const Form = () => {
                 b) regular
               </label>
             </li>
-            <li onClick={() => answerResponse(item.uuid, 'c')} className={style.liOption}>
+            <li onClick={() => answerResponse(item.uuid, 'bom')} className={style.liOption}>
               <input
                 className={style.radioQuestion}
                 name={`${item.uuid} item `}
@@ -195,7 +248,7 @@ export const Form = () => {
                 c) bom
               </label>
             </li>
-            <li onClick={() => answerResponse(item.uuid, 'd')} className={style.liOption}>
+            <li onClick={() => answerResponse(item.uuid, 'excelente')} className={style.liOption}>
               <input
                 className={style.radioQuestion}
                 name={`${item.uuid} item `}
