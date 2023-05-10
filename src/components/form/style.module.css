@@ -100,5 +100,47 @@
   padding-left: 1%;
   font-size: 20px;
 }
+.menu .submitForm {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 900;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  background-color: red;
+  color: #ffffff;
+}
+.menu .submitForm p {
+  margin: 0;
+  padding: 0;
+}
+.menu .submitForm:hover {
+  background-color: rgb(236, 122, 122);
+  color: #ffffff;
+}
+
+.menuFinal {
+  position: relative;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+  max-width: 1000px;
+  height: 750px;
+  align-items: center;
+  top: 20px;
+}
+.menuFinal .thankyouQuestion {
+  position: fixed;
+  display: none;
+  text-align: center;
+  align-items: center;
+  font-weight: 900;
+  padding: 0px;
+  border: 4px solid rgb(54, 82, 146);
+  width: 1000px;
+  border-radius: 15px;
+  margin: 0;
+  padding: 20px 0 20px 0;
+  top: 350px;
+}
 
 /*# sourceMappingURL=style.module.css.map */

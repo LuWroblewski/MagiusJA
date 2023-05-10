@@ -18,6 +18,10 @@ export const Form = () => {
   const [selectedAnswer, setSelectedAnswer] = useState({});
   const [formQuestion, setFormQuestion] = useState('profissional');
   const [stepQuestion, setStepQuestion] = useState('profissional');
+  const [displayMenu, setDisplayMenu] = useState('');
+  const [displaySubmit, setDisplaySubmit] = useState('none');
+  const [displayThankyou, setDisplayThankyou] = useState('');
+  const [displayFinal, setDisplayFinal] = useState('');
 
   const [displayProfissional, setDisplayProfissional] = useState(false);
   const [displayGestaoLideranca, setDisplayGestaoLideranca] = useState(false);
@@ -28,7 +32,7 @@ export const Form = () => {
   const [displayAmbienteCondicoes, setDisplayAmbienteCondicoes] = useState(true);
   const [displayIdentidadeConfianca, setDisplayIdentidadeConfianca] = useState(true);
   const [displayComunicacao, setDisplayComunicacao] = useState(true);
-  const [displayCooperacao, setDisplayCooperacao] = useState(true);
+  const [displayCooperacao, setDisplayCooperacao] = useState(false);
 
   const fetchAnswer = async () => {
     await fetch('./api/answerForm/answerQuestion', {
@@ -105,6 +109,11 @@ export const Form = () => {
       setDisplayCooperacao(true);
       setStepQuestion('Cooperação');
       setSelectedAnswer({});
+      setDisplayMenu('none');
+      setDisplaySubmit('');
+      setTimeout(async () => {
+        window.location.reload();
+      }, 5000);
     }
     setFormQuestion(formQuestion);
   };
@@ -133,135 +142,155 @@ export const Form = () => {
     console.log(selectedAnswer);
   }, [selectedAnswer]);
 
+  const finalizarQuestionario = () => {
+    fetchAnswer();
+    setDisplayFinal('none');
+    setDisplayThankyou('block');
+  };
   return (
-    <section className={style.menu}>
-      <h1 className={style.titleQuestion}>Bem vindo ao formulario de Clima organizacional da Magius.</h1>
+    <>
+      <section className={style.menu} style={{ display: displayFinal }}>
+        <h1 className={style.titleQuestion}>Bem vindo ao formulario de Clima organizacional da Magius.</h1>
 
-      <h2 className={style.stepQuestion}>
-        O questionario é dividido entre 10 categorias, quando terminar de responder uma categoria apenas avance para a
-        proxima clicando abaixo: <FontAwesomeIcon icon={faArrowDown} />
-      </h2>
-      <p className={style.alertQuestion}>
-        <FontAwesomeIcon icon={faTriangleExclamation} size='xl' /> Lembrando, após avançar em uma etapa você não poderá
-        voltar a etapa anterior
-      </p>
-      <ul className={style.ulMenu}>
-        <li className={style.menuTheme}>
-          <button disabled={displayProfissional} style={{ borderRadius: '8px 0 0 0' }}>
-            Profissional
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button disabled={displayGestaoLideranca} onClick={() => menuChangeQuestion('gestaoLideranca')}>
-            Gestão/liderança
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button disabled={displayClimaOrganizacional} onClick={() => menuChangeQuestion('climaOrganizacional')}>
-            Clima Organizacional
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button disabled={displayBeneficios} onClick={() => menuChangeQuestion('beneficios')}>
-            Beneficios
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button
-            disabled={displayOportunidadeDesenvolvimento}
-            onClick={() => menuChangeQuestion('oportunidadeDesenvolvimento')}
-            style={{ borderRadius: '0 8px 0 0' }}
-          >
-            Oportunidades e Desenvolvimento
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button
-            disabled={displayMotivacao}
-            onClick={() => menuChangeQuestion('motivacao')}
-            style={{ borderRadius: '0 0 0 8px' }}
-          >
-            Motivação
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button disabled={displayAmbienteCondicoes} onClick={() => menuChangeQuestion('ambienteCondicoes')}>
-            Ambiente/condições de trabalho
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button disabled={displayIdentidadeConfianca} onClick={() => menuChangeQuestion('identidadeConfianca')}>
-            identidade e confiança
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button disabled={displayComunicacao} onClick={() => menuChangeQuestion('comunicacao')}>
-            comunicação
-          </button>
-        </li>
-        <li className={style.menuTheme}>
-          <button
-            disabled={displayCooperacao}
-            onClick={() => menuChangeQuestion('cooperacao')}
-            style={{ borderRadius: '0 0 8px 0' }}
-          >
-            cooperação
-          </button>
-        </li>
-      </ul>
-      <ul className={style.tableQuestion}>
-        <h2 className={style.stepQuestion}>Você está na etapa {stepQuestion}</h2>
-
-        {dataAnswer.map((item: Question) => (
-          <li key={item.id}>
-            <li className={style.liQuestion}>{item.pergunta}</li>
-            <li onClick={() => answerResponse(item.uuid, 'ruim')} className={style.liOption}>
-              <input
-                className={style.radioQuestion}
-                name={`${item.uuid} item `}
-                type='radio'
-                id={`${item.uuid} radioOptionRuim`}
-              />
-              <label className={style.labelQuestion} htmlFor={`${item.id} radioOptionRuim`}>
-                a) ruim
-              </label>
-            </li>
-            <li onClick={() => answerResponse(item.uuid, 'regular')} className={style.liOption}>
-              <input
-                className={style.radioQuestion}
-                name={`${item.uuid} item `}
-                type='radio'
-                id={`${item.uuid} radioOptionRegular`}
-              />
-              <label className={style.labelQuestion} htmlFor={`${item.id} radioOptionRegular`}>
-                b) regular
-              </label>
-            </li>
-            <li onClick={() => answerResponse(item.uuid, 'bom')} className={style.liOption}>
-              <input
-                className={style.radioQuestion}
-                name={`${item.uuid} item `}
-                type='radio'
-                id={`${item.uuid} radioOptionBom`}
-              />
-              <label className={style.labelQuestion} htmlFor={`${item.id} radioOptionBom`}>
-                c) bom
-              </label>
-            </li>
-            <li onClick={() => answerResponse(item.uuid, 'excelente')} className={style.liOption}>
-              <input
-                className={style.radioQuestion}
-                name={`${item.uuid} item `}
-                type='radio'
-                id={`${item.uuid} radioOptionExcelente`}
-              />
-              <label className={style.labelQuestion} htmlFor={`${item.id} radioOptionExcelente`}>
-                d) excelente
-              </label>
-            </li>
+        <h2 className={style.stepQuestion}>
+          O questionario é dividido entre 10 categorias, quando terminar de responder uma categoria apenas avance para a
+          proxima clicando abaixo: <FontAwesomeIcon icon={faArrowDown} />
+        </h2>
+        <p className={style.alertQuestion}>
+          <FontAwesomeIcon icon={faTriangleExclamation} size='xl' /> Lembrando, após avançar em uma etapa você não
+          poderá voltar a etapa anterior
+        </p>
+        <button
+          className={style.submitForm}
+          style={{ display: displaySubmit }}
+          type='submit'
+          onClick={finalizarQuestionario}
+        >
+          <p>Finalizar formulario.</p> (lembre de verificar se respondeu a essa ultima categoria)
+        </button>
+        <ul className={style.ulMenu} style={{ display: displayMenu }}>
+          <li className={style.menuTheme}>
+            <button disabled={displayProfissional} style={{ borderRadius: '8px 0 0 0' }}>
+              Profissional
+            </button>
           </li>
-        ))}
-      </ul>
-    </section>
+          <li className={style.menuTheme}>
+            <button disabled={displayGestaoLideranca} onClick={() => menuChangeQuestion('gestaoLideranca')}>
+              Gestão/liderança
+            </button>
+          </li>
+          <li className={style.menuTheme}>
+            <button disabled={displayClimaOrganizacional} onClick={() => menuChangeQuestion('climaOrganizacional')}>
+              Clima Organizacional
+            </button>
+          </li>
+          <li className={style.menuTheme}>
+            <button disabled={displayBeneficios} onClick={() => menuChangeQuestion('beneficios')}>
+              Beneficios
+            </button>
+          </li>
+          <li className={style.menuTheme}>
+            <button
+              disabled={displayOportunidadeDesenvolvimento}
+              onClick={() => menuChangeQuestion('oportunidadeDesenvolvimento')}
+              style={{ borderRadius: '0 8px 0 0' }}
+            >
+              Oportunidades e Desenvolvimento
+            </button>
+          </li>
+          <li className={style.menuTheme}>
+            <button
+              disabled={displayMotivacao}
+              onClick={() => menuChangeQuestion('motivacao')}
+              style={{ borderRadius: '0 0 0 8px' }}
+            >
+              Motivação
+            </button>
+          </li>
+          <li className={style.menuTheme}>
+            <button disabled={displayAmbienteCondicoes} onClick={() => menuChangeQuestion('ambienteCondicoes')}>
+              Ambiente/condições de trabalho
+            </button>
+          </li>
+          <li className={style.menuTheme}>
+            <button disabled={displayIdentidadeConfianca} onClick={() => menuChangeQuestion('identidadeConfianca')}>
+              identidade e confiança
+            </button>
+          </li>
+          <li className={style.menuTheme}>
+            <button disabled={displayComunicacao} onClick={() => menuChangeQuestion('comunicacao')}>
+              comunicação
+            </button>
+          </li>
+          <li className={style.menuTheme}>
+            <button
+              disabled={displayCooperacao}
+              onClick={() => menuChangeQuestion('cooperacao')}
+              style={{ borderRadius: '0 0 8px 0' }}
+            >
+              cooperação
+            </button>
+          </li>
+        </ul>
+        <ul className={style.tableQuestion}>
+          <h2 className={style.stepQuestion}>Você está na etapa {stepQuestion}</h2>
+
+          {dataAnswer.map((item: Question) => (
+            <li key={item.id}>
+              <li className={style.liQuestion}>{item.pergunta}</li>
+              <li onClick={() => answerResponse(item.uuid, 'ruim')} className={style.liOption}>
+                <input
+                  className={style.radioQuestion}
+                  name={`${item.uuid} item `}
+                  type='radio'
+                  id={`${item.uuid} radioOptionRuim`}
+                />
+                <label className={style.labelQuestion} htmlFor={`${item.id} radioOptionRuim`}>
+                  a) ruim
+                </label>
+              </li>
+              <li onClick={() => answerResponse(item.uuid, 'regular')} className={style.liOption}>
+                <input
+                  className={style.radioQuestion}
+                  name={`${item.uuid} item `}
+                  type='radio'
+                  id={`${item.uuid} radioOptionRegular`}
+                />
+                <label className={style.labelQuestion} htmlFor={`${item.id} radioOptionRegular`}>
+                  b) regular
+                </label>
+              </li>
+              <li onClick={() => answerResponse(item.uuid, 'bom')} className={style.liOption}>
+                <input
+                  className={style.radioQuestion}
+                  name={`${item.uuid} item `}
+                  type='radio'
+                  id={`${item.uuid} radioOptionBom`}
+                />
+                <label className={style.labelQuestion} htmlFor={`${item.id} radioOptionBom`}>
+                  c) bom
+                </label>
+              </li>
+              <li onClick={() => answerResponse(item.uuid, 'excelente')} className={style.liOption}>
+                <input
+                  className={style.radioQuestion}
+                  name={`${item.uuid} item `}
+                  type='radio'
+                  id={`${item.uuid} radioOptionExcelente`}
+                />
+                <label className={style.labelQuestion} htmlFor={`${item.id} radioOptionExcelente`}>
+                  d) excelente
+                </label>
+              </li>
+            </li>
+          ))}
+        </ul>
+      </section>
+      <div className={style.menuFinal}>
+        <p className={style.thankyouQuestion} style={{ display: displayThankyou }}>
+          Obrigado por responder o Questionario de clima organizacional Magius!
+        </p>
+      </div>
+    </>
   );
 };
