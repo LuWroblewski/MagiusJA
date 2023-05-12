@@ -82,7 +82,7 @@ export const UpdateQuestion = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch('/api/findmSubjectiveQuestion');
+      const response = await fetch('/api/findSubjectiveQuestion');
       const dataMultipleChoice = await response.json();
       setDataSubjective(dataMultipleChoice.map((item: Question) => ({ ...item, id: item.id })));
     }

@@ -1,0 +1,26 @@
+.menu {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    align-items: center;
+    top: 40px;
+
+
+    .chartStyle{
+        position: absolute ;
+        height: 400px;
+        width: 95%;
+        padding-left: 4%;
+        margin: 0;
+
+        p{
+            width: 100%;
+            padding: 0;
+            text-align: center;
+            font-size: x-large;
+            color: rgb(74, 109, 191);
+            font-weight: 900;
+        }
+    }
+}
