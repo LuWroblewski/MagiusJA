@@ -3,17 +3,26 @@ import style from './style.module.css';
 import * as dotenv from 'dotenv';
 import { Bar } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Colors, Legend, Tooltip } from 'chart.js';
+import { useEffect, useState } from 'react';
 ChartJS.register(CategoryScale, LinearScale, BarElement, Colors, Legend, Tooltip);
 
 dotenv.config();
 
 interface ChartProps {
-  dataChart: number[];
   titleChart: string;
   categoriaChart: string;
 }
 
-export const Indicators: React.FC<ChartProps> = ({ dataChart, titleChart, categoriaChart }) => {
+interface Post {
+  ruim: number;
+  regular: number;
+  bom: number;
+  excelente: number;
+}
+
+export const Indicators: React.FC<ChartProps> = ({ titleChart, categoriaChart }) => {
+  const [dataChart, setDataChart] = useState<Array<number>>([]);
+
   const chartData = {
     labels: ['Ruim', 'Regular', 'Bom', 'Excelente'],
     datasets: [
@@ -52,22 +61,39 @@ export const Indicators: React.FC<ChartProps> = ({ dataChart, titleChart, catego
     },
   };
 
-  const handleChoiceCategoria = async (categoria: string) => {
-    const response = await fetch('./api/indicator/indicatorResponse', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ',
-      },
-      body: JSON.stringify({
-        categoria: categoria,
-      }),
-    });
-    const data = await response.json();
-    console.log(data);
-  };
+  useEffect(() => {
+    const handleChoiceCategoria = async (categoria: string) => {
+      const response = await fetch('./api/indicator/indicatorResponse', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: 'Bearer ',
+        },
+        body: JSON.stringify({
+          categoria: categoria,
+        }),
+      });
+      const data = await response.json();
 
-  handleChoiceCategoria(categoriaChart);
+      let ruim = 0;
+      let regular = 0;
+      let bom = 0;
+      let excelente = 0;
+
+      data.map((post: Post) => {
+        ruim = post.ruim;
+        regular = post.regular;
+        bom = post.bom;
+        excelente = post.excelente;
+
+        const newData = [ruim, regular, bom, excelente];
+        setDataChart(newData);
+        console.log(newData);
+      });
+    };
+
+    handleChoiceCategoria(categoriaChart);
+  }, [categoriaChart]);
 
   return (
     <section className={style.menu}>
