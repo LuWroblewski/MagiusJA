@@ -13,7 +13,7 @@ const pass = process.env.USER_PASSWORD;
 
 export const client = new Client({
   connectionString: `postgresql://${user}:${password}${host}/${database}`,
-  ssl: true, // Certifique-se de habilitar o SSL ao se conectar ao ElephantSQL
+  ssl: true,
 });
 
 client.connect();
