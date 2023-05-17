@@ -72,7 +72,7 @@ export const MenuQuestion = () => {
     <section className={style.menu}>
       <form className={style.formQuestion} onSubmit={handleSubmit}>
         <h1 className={style.titleQuestion}>
-          Cadastre uma pergunta ao questionario <FontAwesomeIcon icon={faPenToSquare} />
+          Cadastre uma pergunta ao questionário <FontAwesomeIcon icon={faPenToSquare} />
         </h1>
         <h2 className={style.StepQuestion}> 1º Escolha como será a pergunta</h2>
         <select className={style.selectQuestion} value={selectedOption} onChange={handleOptionChange}>
@@ -87,16 +87,16 @@ export const MenuQuestion = () => {
           <option hidden value=''>
             Selecione uma opção
           </option>
-          <option value='profissional'>profissional</option>
-          <option value='gestao/lideranca'>gestão/liderança</option>
-          <option value='climaOrganizacional'>clima organizacional</option>
+          <option value='profissional'>Profissional</option>
+          <option value='gestao/lideranca'>Gestão/liderança</option>
+          <option value='climaOrganizacional'>Clima organizacional</option>
           <option value='beneficios'>beneficios</option>
-          <option value='oportunidade/desenvolvimento'>oportunidade/desenvolvimento</option>
+          <option value='oportunidade/desenvolvimento'>Oportunidade/desenvolvimento</option>
           <option value='motivacao'>motivação</option>
-          <option value='ambiente/condicoesDeTrabalho'>ambiente/condições de trabalho</option>
-          <option value='identidade/confianca'>identidade/confiança</option>
-          <option value='comunicacao'>comunicação</option>
-          <option value='cooperacao'>cooperação</option>
+          <option value='ambiente/condicoesDeTrabalho'>Ambiente/condições de trabalho</option>
+          <option value='identidade/confianca'>Identidade/confiança</option>
+          <option value='comunicacao'>Comunicação</option>
+          <option value='cooperacao'>Cooperação</option>
         </select>
         <h2 className={style.StepQuestion}> Agora, escreva a pergunta</h2>
         <textarea

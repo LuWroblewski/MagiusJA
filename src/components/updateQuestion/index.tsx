@@ -96,7 +96,7 @@ export const UpdateQuestion = () => {
   return (
     <section className={style.menu}>
       <h1 className={style.titleQuestion}>
-        Atualize uma pergunta do questionario <FontAwesomeIcon icon={faWrench} size='2xl' />
+        Atualize uma pergunta do questionário <FontAwesomeIcon icon={faWrench} size='2xl' />
       </h1>
       <h2 className={style.StepQuestion}>
         1º Escreva a pergunta que <b>irá</b> substituir

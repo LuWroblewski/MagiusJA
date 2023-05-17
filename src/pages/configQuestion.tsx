@@ -19,14 +19,18 @@ const Home = () => {
   return (
     <div className='Home'>
       <Menu />
-      <div className='menu'>
-        <button className='buttonConfig' onClick={handleToggleDeleteQuestion}>
-          Deletar
-        </button>
-        <button className='buttonConfig' onClick={handleToggleUpdateQuestion}>
-          Atualizar
-        </button>
+      <div className='menuConfig'>
+        <div className='listConfig'>
+          <button className='buttonConfig' onClick={handleToggleDeleteQuestion}>
+            Deletar
+          </button>
+          <button className='buttonConfig' onClick={handleToggleUpdateQuestion}>
+            Atualizar
+          </button>
+        </div>
+      </div>
 
+      <div className='menu'>
         <div style={{ display: `${displayDelete}` }}>
           <DeleteQuestion />
         </div>

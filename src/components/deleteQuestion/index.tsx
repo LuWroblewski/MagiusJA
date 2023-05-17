@@ -80,7 +80,7 @@ export const DeleteQuestion = () => {
   return (
     <section className={style.menu}>
       <h1 className={style.titleQuestion}>
-        Remova uma pergunta do questionario <FontAwesomeIcon icon={faXmark} size='2xl' />
+        Remova uma pergunta do questionário <FontAwesomeIcon icon={faXmark} size='2xl' />
       </h1>
       <table className={style.tableQuestion}>
         <thead>

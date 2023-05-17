@@ -154,7 +154,7 @@ export const Form = () => {
           <h1 className={style.titleQuestion}>Bem vindo ao formulario de Clima organizacional da Magius.</h1>
 
           <h2 className={style.stepQuestion}>
-            O questionario é dividido entre 10 categorias, quando terminar de responder uma categoria apenas avance para
+            O questionário é dividido entre 10 categorias, quando terminar de responder uma categoria apenas avance para
             a proxima clicando abaixo: <FontAwesomeIcon icon={faArrowDown} />
           </h2>
           <p className={style.alertQuestion}>

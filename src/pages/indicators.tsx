@@ -5,6 +5,24 @@ const Home = () => {
   return (
     <div className='Home'>
       <Menu />
+      <h1 className='titleIndicators'>Bem vindo aos indicadores Magius.</h1>
+      <h2 className='textIndicators'> Cada indicador se refere a uma categoria</h2>
+      <ul className='captions'>
+        <p className='textIndicators'>Legenda de cada cor</p>
+        <li className='captionRuim' style={{ backgroundColor: 'rgba(255, 0, 0, 0.6)' }}>
+          Ruim
+        </li>
+        <li className='captionRegular' style={{ backgroundColor: 'rgba(0, 0, 255, 0.6)' }}>
+          Regular
+        </li>
+        <li className='captionBom' style={{ backgroundColor: 'rgba(255, 134, 54, 0.6)' }}>
+          Bom
+        </li>
+        <li className='captionExcelente' style={{ backgroundColor: 'rgba(250, 102, 128, 0.6)' }}>
+          Excelente
+        </li>
+      </ul>
+
       <div className='chartStyle'>
         <Indicators categoriaChart={'profissional'} titleChart='Profissional' />
         <Indicators categoriaChart={'gestao/lideranca'} titleChart='Gestão / Liderança' />

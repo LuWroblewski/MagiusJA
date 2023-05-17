@@ -19,10 +19,70 @@ body {
   align-items: center;
   border-radius: 9px;
 }
-.menu .buttonConfig {
+
+.titleIndicators {
   position: relative;
-  border: 2px solid #ccc;
-  border-radius: 7px;
+  font-size: 50px;
+  color: #002f9c;
+  font-weight: 900;
+  margin: 0;
+  text-align: center;
+  top: 15px;
+}
+
+.textIndicators {
+  font-size: 20px;
+  color: rgb(74, 109, 191);
+  font-weight: 900;
+  text-align: center;
+}
+
+.captions {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+  align-items: center;
+}
+.captions li {
+  width: 100px;
+  height: 20px;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  font-weight: 400;
+  font-size: 20px;
+  margin-right: 50px;
+  padding: 2px 5px 12px 5px;
+  color: #ffffff;
+}
+.captions li:hover {
+  transform: scale(1.2);
+}
+
+.chartStyle {
+  display: flex;
+  margin: 0;
+}
+
+.menuConfig {
+  position: relative;
+  background-color: none;
+  display: flex;
+  width: 100%;
+  max-width: 1900px;
+  top: -5px;
+}
+.menuConfig .listConfig {
+  position: relative;
+  margin-left: auto;
+  margin-right: 4.5%;
+  background-color: #ffffff;
+  border-radius: 0 0 15px 15px;
+}
+.menuConfig .buttonConfig {
+  position: relative;
+  border: none;
+  background: none;
   color: #002f9c;
   text-align: center;
   text-decoration: none;
@@ -34,19 +94,11 @@ body {
   width: 130px;
   padding: 5px;
   font-weight: bold;
-  padding: 15px;
-  top: 10px;
 }
-.menu .buttonConfig:hover {
-  color: #002f9c;
-  background-color: #ffffff;
-  border-radius: 5px;
-  border: 2px solid #002f9c;
-}
-
-.chartStyle {
-  display: flex;
-  margin: 0;
+.menuConfig .buttonConfig:hover {
+  color: #ffffff;
+  background-color: #002f9c;
+  border-radius: 15px;
 }
 
 /*# sourceMappingURL=global-styles.css.map */

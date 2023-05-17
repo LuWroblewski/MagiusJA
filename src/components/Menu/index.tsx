@@ -14,7 +14,7 @@ export const Menu = () => (
         <li>Cadastrar</li>
       </Link>
       <Link className={style.ulLink} href='/configQuestion'>
-        <li>configurações</li>
+        <li>Configurações</li>
       </Link>
       <Link className={style.ulLink} href='/indicators'>
         <li>Indicadores</li>
