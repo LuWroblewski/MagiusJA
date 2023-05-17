@@ -8,7 +8,6 @@ const user = process.env.PGUSER;
 const host = process.env.PGHOST;
 const database = process.env.PGDATABASE;
 const password = process.env.PGPASSWORD;
-
 const userEmail = process.env.USER_EMAILTESTE;
 const pass = process.env.USER_PASSWORD;
 
