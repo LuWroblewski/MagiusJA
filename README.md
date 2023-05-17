@@ -1,4 +1,17 @@
-## Projeto feito para JA 5 semestre
+# Projeto feito para JA 5 semestre
 
-A ideia do projeto e dividida em duas partes, uma parte e do RH aonde ele irá poder criar, editar e apagar as perguntas do formulario, além de ter um espaço apenas para ver os indicadores que o formulario irá retornar.
-A segunda parte e aonde o colaborador consegue responder as perguntas
+## Ele é dividido em 2 partes
+
+# Parte do RH que consiste:
+-Tem criação da pergunta pro questionario
+-Delete da pergunta
+-possibilidade de mudar a pergunta
+-indicadores baseados no banco de dados então
+# Parte para os colaboradores da empresa 
+-Questionario dividido em categorias e cada resposta vai para o banco de dados para suprir os indicadores
+
+## Como usar?
+Baixe o projeto e digite npm install, faça o documento .env e configure adicionando o caminho do banco de dados
+
+<p> Você pode ver uma parte do projeto aqui: https://magius-ja.vercel.app/ </p>
+<b> O BANCO DE DADOS NÃO ESTÁ CONECTADO NO VERCEL,</b> logo as perguntas e indicadores não irão aparecer corretamente
