@@ -60,12 +60,19 @@
   font-weight: 600;
   font-size: 18px;
   color: rgb(54, 82, 146);
+  cursor: pointer;
+}
+.menu .ulMenu .menuTheme button:disabled {
+  cursor: not-allowed;
 }
 .menu .ulMenu .menuTheme:hover {
   color: rgb(176, 176, 231);
 }
 .menu .ulMenu .menuTheme:hover button:hover {
   color: rgb(176, 176, 231);
+}
+.menu .ulMenu .menuTheme:disabled {
+  cursor: not-allowed;
 }
 .menu .tableQuestion {
   list-style-type: none;

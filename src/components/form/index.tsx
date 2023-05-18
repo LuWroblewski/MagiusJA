@@ -32,7 +32,7 @@ export const Form = () => {
   const [displayAmbienteCondicoes, setDisplayAmbienteCondicoes] = useState(true);
   const [displayIdentidadeConfianca, setDisplayIdentidadeConfianca] = useState(true);
   const [displayComunicacao, setDisplayComunicacao] = useState(true);
-  const [displayCooperacao, setDisplayCooperacao] = useState(false);
+  const [displayCooperacao, setDisplayCooperacao] = useState(true);
 
   const fetchAnswer = async () => {
     await fetch('./api/answerForm/answerQuestion', {

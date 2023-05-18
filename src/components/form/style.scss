@@ -59,6 +59,10 @@
     font-weight: 600;
     font-size: 18px;
     color: rgb(54, 82, 146);
+    cursor: pointer;
+    &:disabled{
+      cursor:not-allowed;
+    }
   }
   &:hover   {
     color: rgb(176, 176, 231);
@@ -66,6 +70,9 @@
       color: rgb(176, 176, 231);
 
     }
+  }
+  &:disabled{
+    cursor:not-allowed;
   }
 
 }
