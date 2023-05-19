@@ -79,7 +79,7 @@ export const MenuQuestion = () => {
           <option hidden value=''>
             Selecione uma opção
           </option>
-          <option value='multipleChoice'>Questão multipla escolha</option>
+          <option value='multipleChoice'>Questão múltipla escolha</option>
           <option value='subjective'>Questão subjetiva</option>
         </select>
         <h2 className={style.StepQuestion}> 2º Agora escolha a categoria da sua pergunta</h2>
@@ -90,9 +90,9 @@ export const MenuQuestion = () => {
           <option value='profissional'>Profissional</option>
           <option value='gestao/lideranca'>Gestão/liderança</option>
           <option value='climaOrganizacional'>Clima organizacional</option>
-          <option value='beneficios'>beneficios</option>
+          <option value='beneficios'>Benefícios</option>
           <option value='oportunidade/desenvolvimento'>Oportunidade/desenvolvimento</option>
-          <option value='motivacao'>motivação</option>
+          <option value='motivacao'>Motivação</option>
           <option value='ambiente/condicoesDeTrabalho'>Ambiente/condições de trabalho</option>
           <option value='identidade/confianca'>Identidade/confiança</option>
           <option value='comunicacao'>Comunicação</option>

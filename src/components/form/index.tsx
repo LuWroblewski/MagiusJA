@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import style from './style.module.css';
 import { useEffect, useState } from 'react';
 import { faArrowDown, faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import logo from '../../img/magius.png';
+import Image from 'next/image';
 import * as dotenv from 'dotenv';
 dotenv.config();
 
@@ -149,13 +151,17 @@ export const Form = () => {
   };
   return (
     <>
+      <div className={style.menuImage}>
+        <Image className={style.img} src={logo} alt='imageMenu' />
+      </div>
+
       <section className={style.menu}>
         <div style={{ display: displayFinal }}>
-          <h1 className={style.titleQuestion}>Bem vindo ao formulario de Clima organizacional da Magius.</h1>
+          <h1 className={style.titleQuestion}>Bem-vindo ao formulário de Clima Organizacional da Magius.</h1>
 
           <h2 className={style.stepQuestion}>
             O questionário é dividido entre 10 categorias, quando terminar de responder uma categoria apenas avance para
-            a proxima clicando abaixo: <FontAwesomeIcon icon={faArrowDown} />
+            a próxima clicando abaixo: <FontAwesomeIcon icon={faArrowDown} />
           </h2>
           <p className={style.alertQuestion}>
             <FontAwesomeIcon icon={faTriangleExclamation} size='xl' /> Lembrando, após avançar em uma etapa você não
@@ -187,7 +193,7 @@ export const Form = () => {
             </li>
             <li className={style.menuTheme}>
               <button disabled={displayBeneficios} onClick={() => menuChangeQuestion('beneficios')}>
-                Beneficios
+                Benefícios
               </button>
             </li>
             <li className={style.menuTheme}>
