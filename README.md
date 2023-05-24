@@ -13,5 +13,4 @@
 ## Como usar?
 Baixe o projeto e digite npm install, faça o documento .env e configure adicionando o caminho do banco de dados
 
-<p> Você pode ver uma parte do projeto aqui: https://magius-ja.vercel.app/ </p>
-<b> O BANCO DE DADOS NÃO ESTÁ CONECTADO NO VERCEL,</b> logo as perguntas e indicadores não irão aparecer corretamente
+<p> Você pode ver o projeto terminado aqui: https://magius-ja.vercel.app/ </p>
