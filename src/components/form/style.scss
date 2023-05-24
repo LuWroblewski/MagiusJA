@@ -180,3 +180,90 @@ p{
 
   }
 }
+
+@media only screen and (max-width: 425px) {
+  .menu {
+
+    .alertQuestion{
+      position: relative;
+      left: 1%;
+    }
+    .ulMenu{
+      width: 100%;
+      .menuTheme{
+        width: 49.5%;
+
+      }
+    }
+
+    .tableQuestion{
+      padding-left: 3%;
+    }
+  }
+
+  .menuImage{
+    width: 100%;
+    .img{
+      position: relative;
+      left: 20%;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .menu {
+
+    .alertQuestion{
+      position: relative;
+      left: 1%;
+    }
+    .ulMenu{
+      width: 100%;
+      .menuTheme{
+        width: 49.4%;
+
+      }
+    }
+
+    .tableQuestion{
+      padding-left: 3%;
+    }
+  }
+  .menuImage{
+    .img{
+      position: relative;
+      left: 15%;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .menu {
+
+    .alertQuestion{
+      position: relative;
+      left: 1%;
+    }
+    .ulMenu{
+      width: 100%;
+      .menuTheme{
+        width: 49.3%;
+
+      }
+    }
+
+    .tableQuestion{
+      padding-left: 3%;
+    }
+  }
+  .menuImage{
+    .img{
+      position: relative;
+      left: 13%;
+    }
+
+  }
+
+}

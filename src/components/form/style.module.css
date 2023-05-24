@@ -165,4 +165,65 @@
   max-height: 78px;
 }
 
+@media only screen and (max-width: 425px) {
+  .menu .alertQuestion {
+    position: relative;
+    left: 1%;
+  }
+  .menu .ulMenu {
+    width: 100%;
+  }
+  .menu .ulMenu .menuTheme {
+    width: 49.5%;
+  }
+  .menu .tableQuestion {
+    padding-left: 3%;
+  }
+  .menuImage {
+    width: 100%;
+  }
+  .menuImage .img {
+    position: relative;
+    left: 20%;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .menu .alertQuestion {
+    position: relative;
+    left: 1%;
+  }
+  .menu .ulMenu {
+    width: 100%;
+  }
+  .menu .ulMenu .menuTheme {
+    width: 49.4%;
+  }
+  .menu .tableQuestion {
+    padding-left: 3%;
+  }
+  .menuImage .img {
+    position: relative;
+    left: 15%;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .menu .alertQuestion {
+    position: relative;
+    left: 1%;
+  }
+  .menu .ulMenu {
+    width: 100%;
+  }
+  .menu .ulMenu .menuTheme {
+    width: 49.3%;
+  }
+  .menu .tableQuestion {
+    padding-left: 3%;
+  }
+  .menuImage .img {
+    position: relative;
+    left: 13%;
+  }
+}
+
 /*# sourceMappingURL=style.module.css.map */
