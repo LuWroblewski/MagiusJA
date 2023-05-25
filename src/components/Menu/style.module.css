@@ -36,22 +36,49 @@
   text-decoration: none;
 }
 
-.subMenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #ffffff;
-  list-style: none;
-  padding: 10px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  z-index: 1;
+@media only screen and (max-width: 425px) {
+  .menu {
+    display: block;
+  }
+  .menu .img {
+    position: relative;
+    display: flex;
+    left: 12%;
+  }
+  .menu .ulMenu {
+    margin: 0;
+    padding: 0;
+  }
 }
-.subMenu li {
-  cursor: pointer;
+@media only screen and (max-width: 375px) {
+  .menu {
+    display: block;
+  }
+  .menu .img {
+    position: relative;
+    display: flex;
+    left: 12%;
+  }
+  .menu .ulMenu {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+  }
 }
-.subMenu li:hover {
-  color: rgb(176, 176, 231);
+@media only screen and (max-width: 320px) {
+  .menu {
+    display: block;
+  }
+  .menu .img {
+    position: relative;
+    display: flex;
+    left: 5%;
+  }
+  .menu .ulMenu {
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+  }
 }
 
 /*# sourceMappingURL=style.module.css.map */

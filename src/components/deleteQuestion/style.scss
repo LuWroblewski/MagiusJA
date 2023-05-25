@@ -1,88 +1,116 @@
 .menu {
+  position: relative;
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
+  max-width: 700px;
+  height: 750px;
+  align-items: center;
+
+  .titleQuestion {
     position: relative;
-    margin: 0 auto;
-    text-align: left;
-    width: 100%;
-    max-width: 700px;
-    height: 750px;
-    align-items: center;
-  
-    .titleQuestion{
-      position: relative;
-      font-size: 50px;
-      color: #002f9c;
-      text-align: center;
-      margin: 0;
-      font-weight: 900;
+    font-size: 50px;
+    color: #002f9c;
+    text-align: center;
+    margin: 0;
+    font-weight: 900;
   }
-  .StepQuestion{
+  .StepQuestion {
     font-size: 20px;
     color: rgb(74, 109, 191);
     text-align: center;
     font-weight: 900;
-}   
+  }
 
-.tableQuestion{
-  position: relative;
-  overflow:auto;
-  border-radius: 5px;
-  border: none;
-  border-collapse: collapse;
-  word-wrap: break-word;
-  display: block;
-  transition: 0.15s;
-  left: 2%;
-  width: 680px;
-  height: 520px;
-  background-color: #F8F8F8;
-  top: 15px;
-  .tdQuestion{
+  .tableQuestion {
     position: relative;
-    text-align: left;
-    padding-left: 20px;
-    width: 100%;
-    overflow:auto;
-    font-weight: 600;
-
-  }
-  th{
-    color: rgb(74, 109, 191);
-    background: #9996963b;
-    font-size: 25px;
-    text-align: center;
-  }
-  tr:hover { 
-    background-color: #cccccc 
-  }
-
-  tr:nth-child(even){
-    background: #F8F8F8;
-    &:hover { 
-      background-color: #cccccc 
+    overflow: auto;
+    border-radius: 5px;
+    border: none;
+    border-collapse: collapse;
+    word-wrap: break-word;
+    display: block;
+    transition: 0.15s;
+    left: 2%;
+    width: 680px;
+    height: 520px;
+    background-color: #f8f8f8;
+    top: 15px;
+    .tdQuestion {
+      position: relative;
+      text-align: left;
+      padding-left: 20px;
+      width: 100%;
+      overflow: auto;
+      font-weight: 600;
+    }
+    th {
+      color: rgb(74, 109, 191);
+      background: #9996963b;
+      font-size: 25px;
+      text-align: center;
+    }
+    tr:hover {
+      background-color: #cccccc;
     }
 
-}
-}
-
-.removeButton{
-  border: solid #f2f1f2;
-  border-radius: 7px;
-  color: #07b874;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  width: 97px;
-
-   &:hover {
-  background-color: #ffffff;
-  color: #07b874;
-  border: solid;
-  border-radius: 5px;
+    tr:nth-child(even) {
+      background: #f8f8f8;
+      &:hover {
+        background-color: #cccccc;
+      }
+    }
   }
 
+  .removeButton {
+    border: solid #f2f1f2;
+    border-radius: 7px;
+    color: #07b874;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    width: 97px;
+
+    &:hover {
+      background-color: #ffffff;
+      color: #07b874;
+      border: solid;
+      border-radius: 5px;
+    }
+  }
 }
+
+@media only screen and (max-width: 425px) {
+  .menu {
+    height: auto;
+
+    .tableQuestion {
+      width: auto;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .menu {
+    height: auto;
+
+    .tableQuestion {
+      width: 360px;
+    }
+  }
+}
+@media only screen and (max-width: 320px) {
+  .menu {
+    height: auto;
+
+    .tableQuestion {
+      width: auto;
+    }
+  }
+}
+@media only screen and (min-width: 768px) {
 }

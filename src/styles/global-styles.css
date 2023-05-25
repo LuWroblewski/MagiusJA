@@ -101,4 +101,39 @@ body {
   border-radius: 15px;
 }
 
+@media only screen and (max-width: 425px) {
+  .menuConfig .listConfig {
+    margin-left: 25%;
+  }
+  .chartStyle {
+    display: block;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .menuConfig .listConfig {
+    margin-left: 23%;
+  }
+  .chartStyle {
+    display: block;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .menuConfig .listConfig {
+    display: flex;
+    font-size: 15px;
+    margin-left: 12%;
+  }
+  .chartStyle {
+    display: block;
+  }
+  .captions li {
+    margin-right: 6%;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .chartStyle {
+    display: flex;
+  }
+}
+
 /*# sourceMappingURL=global-styles.css.map */

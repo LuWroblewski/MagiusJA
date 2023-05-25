@@ -23,7 +23,8 @@
   color: rgb(74, 109, 191);
   font-weight: 900;
 }
-.menu .formQuestion .selectQuestion, .menu .formQuestion .selectTheme {
+.menu .formQuestion .selectQuestion,
+.menu .formQuestion .selectTheme {
   display: flex;
   cursor: pointer;
   font-weight: 500;
@@ -35,19 +36,22 @@
   border: 2px solid #ccc;
   border-radius: 5px;
   background: white;
-  box-shadow: 0 1px 3px -2px #9098A9;
+  box-shadow: 0 1px 3px -2px #9098a9;
   cursor: pointer;
   font-family: inherit;
   font-size: 16px;
   transition: all 150ms ease;
 }
-.menu .formQuestion .selectQuestion option, .menu .formQuestion .selectTheme option {
+.menu .formQuestion .selectQuestion option,
+.menu .formQuestion .selectTheme option {
   font-size: 17px;
 }
-.menu .formQuestion .selectQuestion:focus, .menu .formQuestion .selectTheme:focus {
+.menu .formQuestion .selectQuestion:focus,
+.menu .formQuestion .selectTheme:focus {
   border-color: #007bff;
 }
-.menu .formQuestion .selectQuestion:focus::after, .menu .formQuestion .selectTheme:focus::after {
+.menu .formQuestion .selectQuestion:focus::after,
+.menu .formQuestion .selectTheme:focus::after {
   transform: scaleX(1);
 }
 .menu .formQuestion .fieldQuestion {
@@ -93,6 +97,22 @@
   color: white;
   border-color: #001f66;
   font-weight: 9700;
+}
+
+@media only screen and (max-width: 425px) {
+  .menu {
+    height: auto;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .menu {
+    height: auto;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .menu {
+    height: auto;
+  }
 }
 
 /*# sourceMappingURL=style.module.css.map */

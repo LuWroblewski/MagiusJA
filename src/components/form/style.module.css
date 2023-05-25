@@ -16,7 +16,8 @@
   margin: 0;
   font-weight: 900;
 }
-.menu .stepQuestion, .menu .alertQuestion {
+.menu .stepQuestion,
+.menu .alertQuestion {
   font-size: 20px;
   color: rgb(74, 109, 191);
   text-align: center;
@@ -179,6 +180,9 @@
   .menu .tableQuestion {
     padding-left: 3%;
   }
+  .menuFinal .thankyouQuestion {
+    width: auto;
+  }
   .menuImage {
     width: 100%;
   }
@@ -206,6 +210,10 @@
     left: 15%;
   }
 }
+.menuFinal .thankyouQuestion {
+  width: auto;
+}
+
 @media only screen and (max-width: 320px) {
   .menu .alertQuestion {
     position: relative;
@@ -223,6 +231,14 @@
   .menuImage .img {
     position: relative;
     left: 13%;
+  }
+  .menuFinal .thankyouQuestion {
+    width: auto;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .menuFinal .thankyouQuestion {
+    width: 50%;
   }
 }
 

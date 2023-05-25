@@ -33,7 +33,7 @@
   left: 2%;
   width: 680px;
   height: 520px;
-  background-color: #F8F8F8;
+  background-color: #f8f8f8;
   top: 15px;
 }
 .menu .tableQuestion .tdQuestion {
@@ -54,7 +54,7 @@
   background-color: #cccccc;
 }
 .menu .tableQuestion tr:nth-child(even) {
-  background: #F8F8F8;
+  background: #f8f8f8;
 }
 .menu .tableQuestion tr:nth-child(even):hover {
   background-color: #cccccc;
@@ -77,6 +77,31 @@
   color: #07b874;
   border: solid;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 425px) {
+  .menu {
+    height: auto;
+  }
+  .menu .tableQuestion {
+    width: auto;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .menu {
+    height: auto;
+  }
+  .menu .tableQuestion {
+    width: 360px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  .menu {
+    height: auto;
+  }
+  .menu .tableQuestion {
+    width: auto;
+  }
 }
 
 /*# sourceMappingURL=style.module.css.map */
