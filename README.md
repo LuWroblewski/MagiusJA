@@ -14,3 +14,5 @@
 Baixe o projeto e digite npm install, faça o documento .env e configure adicionando o caminho do banco de dados
 
 <p> Você pode ver o projeto terminado aqui: https://magius-ja.vercel.app/ </p>
+
+<p> Nota: A função de impressão termica só funcionará localhost. Além que é preciso configurar para isso.</p>
