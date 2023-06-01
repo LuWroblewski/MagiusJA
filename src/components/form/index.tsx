@@ -5,6 +5,7 @@ import { faArrowDown, faTriangleExclamation } from '@fortawesome/free-solid-svg-
 import logo from '../../img/magius.png';
 import Image from 'next/image';
 import * as dotenv from 'dotenv';
+import { printerComprovante } from './printerComprovante';
 dotenv.config();
 
 interface Question {
@@ -141,7 +142,7 @@ export const Form = () => {
     console.log(selectedAnswer);
   }, [selectedAnswer]);
 
-  const finalizarQuestionario = () => {
+  const finalizarQuestionario = async () => {
     fetchAnswer();
     setDisplayFinal('none');
     setDisplayThankyou('block');
@@ -149,6 +150,7 @@ export const Form = () => {
       window.location.reload();
     }, 3000);
   };
+  printerComprovante();
 
   return (
     <>
