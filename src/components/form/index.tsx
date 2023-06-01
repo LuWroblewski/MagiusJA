@@ -19,7 +19,7 @@ export const Form = () => {
   const [shouldFetchData] = useState(true);
   const [selectedAnswer, setSelectedAnswer] = useState<{ [key: number]: string }>({});
   const [formQuestion, setFormQuestion] = useState('profissional');
-  const [stepQuestion, setStepQuestion] = useState('profissional');
+  const [stepQuestion, setStepQuestion] = useState('Profissional');
   const [displayMenu, setDisplayMenu] = useState('');
   const [displaySubmit, setDisplaySubmit] = useState('none');
   const [displayThankyou, setDisplayThankyou] = useState('');
@@ -60,7 +60,7 @@ export const Form = () => {
     if (formQuestion == 'climaOrganizacional') {
       await fetchAnswer();
       setDisplayClimaOrganizacional(true);
-      setStepQuestion('Clima organizacional');
+      setStepQuestion('Clima Organizacional');
       setDisplayBeneficios(false);
       setSelectedAnswer({});
     }
@@ -74,7 +74,7 @@ export const Form = () => {
     if (formQuestion == 'oportunidadeDesenvolvimento') {
       await fetchAnswer();
       setDisplayOportunidadeDesenvolvimento(true);
-      setStepQuestion('Opotunidade / desenvolvimento');
+      setStepQuestion('Opotunidade / Desenvolvimento');
       setDisplayMotivacao(false);
       setSelectedAnswer({});
     }
@@ -88,7 +88,7 @@ export const Form = () => {
     if (formQuestion == 'ambienteCondicoes') {
       await fetchAnswer();
       setDisplayAmbienteCondicoes(true);
-      setStepQuestion('Ambiente / Condições');
+      setStepQuestion('Ambiente/Condições de trabalho');
       setDisplayIdentidadeConfianca(false);
       setSelectedAnswer({});
     }
@@ -145,11 +145,9 @@ export const Form = () => {
     fetchAnswer();
     setDisplayFinal('none');
     setDisplayThankyou('block');
-    /*
     setTimeout(async () => {
       window.location.reload();
     }, 3000);
-    */
   };
 
   return (
@@ -224,12 +222,12 @@ export const Form = () => {
             </li>
             <li className={style.menuTheme}>
               <button disabled={displayIdentidadeConfianca} onClick={() => menuChangeQuestion('identidadeConfianca')}>
-                identidade e confiança
+                Identidade e confiança
               </button>
             </li>
             <li className={style.menuTheme}>
               <button disabled={displayComunicacao} onClick={() => menuChangeQuestion('comunicacao')}>
-                comunicação
+                Comunicação
               </button>
             </li>
             <li className={style.menuTheme}>
@@ -238,7 +236,7 @@ export const Form = () => {
                 onClick={() => menuChangeQuestion('cooperacao')}
                 style={{ borderRadius: '0 0 8px 0' }}
               >
-                cooperação
+                Cooperação
               </button>
             </li>
           </ul>
@@ -302,7 +300,7 @@ export const Form = () => {
         </div>
         <div className={style.menuFinal}>
           <p className={style.thankyouQuestion} style={{ display: displayThankyou }}>
-            Obrigado por responder o Questionario de clima organizacional Magius!
+            Obrigado por responder o questionário de Clima Organizacional Magius!
           </p>
         </div>
       </section>
