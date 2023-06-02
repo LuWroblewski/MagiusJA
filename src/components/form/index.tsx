@@ -146,6 +146,9 @@ export const Form = () => {
     fetchAnswer();
     setDisplayFinal('none');
     setDisplayThankyou('block');
+    setTimeout(async () => {
+      window.location.reload();
+    }, 3000);
   };
   printerComprovante();
 
