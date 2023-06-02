@@ -15,6 +15,11 @@ export async function printerComprovante() {
   });
 
   printer.newLine();
+  printer.newLine();
+  printer.alignCenter();
+  printer.drawLine();
+
+  printer.newLine();
   printer.alignCenter();
   printer.setTextDoubleWidth();
   printer.println('Comprovante');

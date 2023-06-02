@@ -138,10 +138,11 @@
   max-width: 1000px;
   height: 750px;
   align-items: center;
-  top: 20px;
+  top: 300px;
+  left: 22%;
 
   .thankyouQuestion {
-    position: fixed;
+    position: relative;
     display: none;
     text-align: center;
     align-items: center;
@@ -152,7 +153,6 @@
     border-radius: 15px;
     margin: 0;
     padding: 20px 0 20px 0;
-    top: 350px;
   }
 }
 
@@ -189,6 +189,7 @@
     }
   }
   .menuFinal {
+    left: 0%;
     .thankyouQuestion {
       width: auto;
     }
@@ -228,6 +229,7 @@
   }
 }
 .menuFinal {
+  left: 0%;
   .thankyouQuestion {
     width: auto;
   }
@@ -256,6 +258,7 @@
     }
   }
   .menuFinal {
+    left: 0%;
     .thankyouQuestion {
       width: auto;
     }
@@ -263,6 +266,7 @@
 }
 @media only screen and (min-width: 768px) {
   .menuFinal {
+    left: 22%;
     .thankyouQuestion {
       width: 50%;
     }

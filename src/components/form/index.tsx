@@ -146,9 +146,6 @@ export const Form = () => {
     fetchAnswer();
     setDisplayFinal('none');
     setDisplayThankyou('block');
-    setTimeout(async () => {
-      window.location.reload();
-    }, 3000);
   };
   printerComprovante();
 
@@ -302,7 +299,7 @@ export const Form = () => {
         </div>
         <div className={style.menuFinal}>
           <p className={style.thankyouQuestion} style={{ display: displayThankyou }}>
-            Obrigado por responder o questionário de Clima Organizacional Magius!
+            Obrigado por responder o questionário de Clima Organizacional Magius! Não esqueça de pegar seu comprovante.
           </p>
         </div>
       </section>
